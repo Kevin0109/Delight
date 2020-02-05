@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // var num = Math.random();
+    // num = num * 256;
+    // num = Math.floor(num);
+    // //注意点:rgb()中的格逗号为字符串类型,而a是Num类型.所以要进行字符串拼接
+    // document.write(`<div style='height:80px; background-color:rgb(${num},${num},${num});'></div>`);
+    // 问题1: rgb中的三个数值,有可能不同,所以要再设置两个值b和c,代码大部分重复,建议使用函数
+    // 是否需要设置形参? 需要从外部获得什么数据么?不需要   是否需要设置返回值? 需要  所以:
+
+    // var a = color();
+    // var b = color();
+    // var c = color();
+    // document.write(`<div style='height:80px; background-color:rgb(${a},${b},${c});'></div>`);
+    //问题2:多个盒子如何实现? 多个盒子的颜色不同如何实现?  进行函数封装,只需要分装a,b,c 
+    function color() {
+        var num = Math.random();
+        num = num * 256;
+        num = Math.floor(num);
+        return num;
+    };
+
+    function getColor() {
+        var a = color();
+        var b = color();
+        var c = color();
+        document.write(`<div style='height:80px; width:80px; display:inline-block; margin:10px;background-color:rgb(${a},${b},${c});'></div>`);
+    };
+
+    function fn() {
+        for (var i = 0; i < 1000; i++) {
+            if (i % 15 == 0) {
+                document.write("</br>");
+            }
+            getColor();
+        }
+    }
+    fn();
+
+</script>
+
+</html>
