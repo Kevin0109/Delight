@@ -1,24 +1,8 @@
-# passvalue
-
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+主要体现了组件之间的传值
+父组件对子组件传值,主要使用了props进行接收数据
+子组件对父组件传值,主要使用了$emit,使得父组件声明的方法可以被子组件调用并传递参数
+同时--子组件对父组件数据的修改也是使用这种方式
+兄弟组件之间的传值,主要利用了中间体bus.js
+兄弟组件都对bus.js进行导入/注册/使用
+大哥组件给bus声明事件, bus.$on  (created中)
+小弟组件对声明的事件进行调用 $emit
