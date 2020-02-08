@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            margin-top: 20px;
+            padding: 0 100px;
+        }
+
+        h1 {
+            height: 80px;
+            line-height: 80px;
+            color: orange;
+        }
+
+        span {
+            display: inline-block;
+            width: 80px;
+            height: 40px;
+            line-height: 40px;
+            margin: 2px;
+            text-align: center;
+            border: 2px solid orange;
+        }
+
+        div {
+            display: inline-block;
+            width: 100px;
+            height: 40px;
+            line-height: 40px;
+            margin: 2px;
+            text-align: center;
+            border: 2px solid orange;
+        }
+    </style>
+</head>
+
+<body>
+</body>
+<script>
+    document.write("<h1>99乘法表</h1>");
+    for (var num = 1; num < 10; num++) {
+        for (var sum = 1; sum <= num; sum++) {
+            document.write("<div>" + num + '*' + sum + '=' + num * sum + "</div>")
+        }
+        document.write('<br>')
+    }
+    document.write("<h1>质数</h1>");
+    // var zhi;
+    for (var num = 2; num <= 100; num++) {
+        for (var sum = 2; sum < num; sum++) {
+            if (num % sum == 0) {
+                break;
+            }
+        }
+        if (sum == num) {
+            document.write('<span>' + num + '</span>');
+        }
+    }
+</script>
+
+</html>
