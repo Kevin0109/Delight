@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<h1>认识object.defineProperty()</h1>
+		<script type="text/javascript">
+			var obj = {
+				a:1
+			}
+			let _age =20
+			Object.defineProperty(obj,'age',{
+				// 不允许再次配置这个属性
+				// configurable: false,
+				// 这个属性能否被for in 循环遍历
+				// enumerable:true,
+				// 定义或设置属性的值
+				// value:200,
+				// 是否允许修改
+				// writable:false ,
+				// 作用: 定义只读属性,假如ES6中的const obj = {b:1},不能直接改变obj = {b:2},但是可以设置obj.b=2, 所以就可以设置对象中的writable
+				
+				// 如果我们设置了get set, 那么当前的属性不能保存具体的值
+				// 如果想留住这个值,需要在外部设置单独的变量接收
+				get(){
+					// 当获取b属性值时,该方法自动执行,并且返回值为当前的属性值
+					console.log('获取age')
+					return _age
+				},
+				set(val){
+					// 当设置这个属性时,该方法会执行,并会接收赋予给这个属性的值
+					console.log('设置age的值为',val)
+					_age=val
+				}
+			})
+			console.dir(obj)
+		</script>
+	</body>
+</html>
